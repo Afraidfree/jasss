@@ -1,0 +1,200 @@
+/* src/components/StickerAddPopup.module.css */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.18s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.popup {
+  background: var(--bg-sidebar);
+  border-radius: 22px;
+  padding: 20px 20px 24px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  border: 0.5px solid var(--border-color);
+  animation: popIn 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.88) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Кнопка закрити */
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 4px;
+}
+
+.closeBtn {
+  background: var(--bg-input);
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+}
+.closeBtn:hover {
+  background: var(--border-color);
+  color: var(--text-primary);
+  transform: scale(1.1);
+}
+.closeBtn:active { transform: scale(0.92); }
+
+/* Сітка превью стікерів */
+.preview {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.previewItem {
+  width: 80px;
+  height: 80px;
+  border-radius: 14px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s;
+}
+.previewItem:hover { transform: scale(1.05); }
+.previewItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 6px;
+}
+
+.moreItem {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+/* Назва і кількість */
+.packTitle {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 4px;
+  transition: color 0.3s;
+}
+
+.packSub {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Кнопка "Додати пакет" */
+.addBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 14px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.18s, transform 0.15s, box-shadow 0.18s;
+  box-shadow: 0 4px 16px rgba(42, 171, 238, 0.35);
+}
+.addBtn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(42, 171, 238, 0.45);
+}
+.addBtn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* "Вже є у тебе" */
+.alreadyRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+  background: var(--bg-input);
+  border-radius: 12px;
+  padding: 10px 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.updateBtn {
+  margin-left: auto;
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+.updateBtn:hover {
+  background: rgba(42, 171, 238, 0.08);
+  border-color: var(--accent);
+}
+
+/* Успіх */
+.successRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4caf50;
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.25);
+  border-radius: 12px;
+  padding: 12px 16px;
+  width: 100%;
+  box-sizing: border-box;
+  animation: successPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes successPop {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}

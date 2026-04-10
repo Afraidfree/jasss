@@ -1,0 +1,274 @@
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-sidebar);
+  border-right: 0.5px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: 2px 0 12px rgba(0,0,0,0.04);
+  z-index: 1;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.header {
+  padding: 14px 12px 10px;
+  border-bottom: 0.5px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  transition: border-color 0.3s;
+}
+
+.me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.myAvatarWrap {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: transform 0.18s;
+}
+.myAvatarWrap:hover { transform: scale(1.07); }
+
+.myAvatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #2AABEE;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: cover;
+}
+
+.editOverlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.42);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.18s;
+}
+.myAvatarWrap:hover .editOverlay { opacity: 1; }
+
+.myName {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 5px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  transition: color 0.18s, background 0.18s, transform 0.15s;
+}
+.iconBtn:hover {
+  background: rgba(0,0,0,0.06);
+  transform: scale(1.1);
+}
+.iconBtn:nth-last-child(1):hover {
+  color: #e53935;
+  background: rgba(229,57,53,0.07);
+}
+.iconBtn:nth-last-child(2):hover {
+  color: var(--accent);
+  background: rgba(42,171,238,0.08);
+}
+.iconBtn:active { transform: scale(0.92); }
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+.actionBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 7px 8px;
+  background: var(--bg-input);
+  color: var(--accent);
+  border: 0.5px solid var(--border-color);
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: inherit;
+  transition: background 0.18s, transform 0.15s, box-shadow 0.18s;
+}
+.actionBtn:hover {
+  background: rgba(42,171,238,0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(42,171,238,0.15);
+}
+.actionBtn:active { transform: translateY(0) scale(0.97); }
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-input);
+  border-radius: 20px;
+  padding: 7px 12px;
+  color: var(--text-muted);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.searchBox:focus-within {
+  box-shadow: 0 0 0 2px rgba(42,171,238,0.2);
+}
+
+.searchInput {
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  width: 100%;
+  font-family: inherit;
+}
+.searchInput::placeholder { color: var(--text-muted); }
+
+/* Список кімнат */
+.list {
+  flex: 1;
+  overflow-y: auto;
+}
+.list::-webkit-scrollbar { width: 3px; }
+.list::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+
+.empty {
+  padding: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  cursor: pointer;
+  transition: background 0.16s, transform 0.15s;
+  border-bottom: 0.5px solid var(--border-color);
+  position: relative;
+}
+.item:hover {
+  background: var(--bg-input);
+  transform: translateX(2px);
+}
+.item:active { transform: translateX(1px) scale(0.99); }
+.item.active {
+  background: rgba(42,171,238,0.08);
+  border-right: 3px solid var(--accent);
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+  overflow: hidden;
+  object-fit: cover;
+  transition: transform 0.18s;
+}
+.item:hover .avatar { transform: scale(1.05); }
+
+.info { flex: 1; min-width: 0; }
+
+.name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.15s;
+}
+.active .name { color: var(--accent); font-weight: 600; }
+
+.sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.active .sub { color: var(--accent); }
+
+.ownerBadge {
+  font-size: 13px;
+  color: #f5a623;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.item:hover .ownerBadge { transform: rotate(20deg) scale(1.2); }
+
+/* Онлайн секція */
+.onlineSection {
+  padding: 10px 14px;
+  border-top: 0.5px solid var(--border-color);
+  background: var(--bg-input);
+  transition: background 0.3s, border-color 0.3s;
+}
+.onlineTitle {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 7px;
+}
+.onlineUser {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding: 3px 0;
+  transition: color 0.15s;
+}
+.onlineUser:hover { color: var(--text-primary); }
+.onlineDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #43A047;
+  flex-shrink: 0;
+  box-shadow: 0 0 4px rgba(67,160,71,0.4);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 4px rgba(67,160,71,0.4); }
+  50%       { box-shadow: 0 0 8px rgba(67,160,71,0.7); }
+}

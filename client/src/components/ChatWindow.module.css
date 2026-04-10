@@ -1,0 +1,104 @@
+.window {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg-chat);
+  transition: background 0.3s;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: var(--bg-header);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 0.5px solid var(--border-color);
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+  z-index: 2;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.avatarContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ownerAvatar {
+  cursor: pointer;
+}
+
+.roomAvatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2AABEE 0%, #1a85c8 100%);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(42,171,238,0.25);
+  overflow: hidden;
+}
+
+.avatarOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.ownerAvatar:hover .avatarOverlay {
+  opacity: 1;
+}
+
+.uploadSpinner {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uploadSpinner::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border: 2px solid #fff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.info { flex: 1; }
+.name { font-size: 15px; font-weight: 600; color: var(--text-primary); transition: color 0.3s; }
+.sub  { font-size: 12px; color: #43A047; margin-top: 1px; font-weight: 500; }
+
+.statusDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background 0.3s;
+}
+.online  { background: #43A047; box-shadow: 0 0 6px rgba(67,160,71,0.5); }
+.offline { background: var(--text-muted); }

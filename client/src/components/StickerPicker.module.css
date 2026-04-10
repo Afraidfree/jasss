@@ -1,0 +1,178 @@
+.picker {
+  position: absolute;
+  bottom: 64px;
+  left: 8px;
+  width: 340px;
+  background: var(--bg-sidebar);
+  border-radius: 16px;
+  border: 0.5px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  z-index: 50;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: popUp 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: background 0.3s, border-color 0.3s;
+}
+
+@keyframes popUp {
+  from { opacity: 0; transform: scale(0.94) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Табки пакетів */
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 8px 10px;
+  border-bottom: 0.5px solid var(--border-color);
+  overflow-x: auto;
+  flex-shrink: 0;
+  transition: border-color 0.3s;
+}
+.tabs::-webkit-scrollbar { height: 0; }
+
+.tab {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, transform 0.13s;
+  flex-shrink: 0;
+  padding: 4px;
+}
+.tab:hover {
+  background: var(--bg-input);
+  transform: scale(1.08);
+}
+.activeTab {
+  background: rgba(42,171,238,0.12) !important;
+}
+
+.tabImg {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.tabEmoji { font-size: 20px; }
+
+.manageBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  border: 1.5px dashed var(--border-color);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: border-color 0.15s, color 0.15s, background 0.15s, transform 0.13s;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.manageBtn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(42,171,238,0.06);
+  transform: scale(1.08);
+}
+
+/* Сітка стікерів */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  padding: 10px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+.grid::-webkit-scrollbar { width: 3px; }
+.grid::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+
+.stickerBtn {
+  aspect-ratio: 1;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.12s, transform 0.12s;
+}
+.stickerBtn:hover {
+  background: var(--bg-input);
+  transform: scale(1.1);
+}
+.stickerBtn:active { transform: scale(0.95); }
+
+.stickerImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+/* Порожній стан */
+.empty {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 28px 16px;
+}
+.empty p {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.createBtn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, transform 0.15s;
+  box-shadow: 0 2px 8px rgba(42,171,238,0.25);
+}
+.createBtn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.hint {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 24px 20px;
+}
+
+/* Назва пакету */
+.packName {
+  padding: 6px 14px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-top: 0.5px solid var(--border-color);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: border-color 0.3s;
+}

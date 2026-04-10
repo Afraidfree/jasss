@@ -1,0 +1,153 @@
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 100;
+  padding: 60px 16px 16px;
+}
+
+.panel {
+  background: var(--bg-sidebar);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 0.5px solid var(--border-color);
+}
+
+.header {
+  padding: 14px 16px;
+  border-bottom: 0.5px solid var(--border-color);
+}
+
+.searchBox {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--bg-input); border-radius: 12px;
+  padding: 9px 14px; color: var(--text-muted);
+}
+
+.searchInput {
+  flex: 1; border: none; background: transparent;
+  font-size: 15px; color: var(--text-primary); outline: none;
+  font-family: inherit;
+}
+.searchInput::placeholder { color: var(--text-muted); }
+
+.spinner {
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 2px solid var(--border-color); border-top-color: var(--accent);
+  animation: spin 0.7s linear infinite; flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.closeBtn {
+  background: none; border: none; cursor: pointer;
+  color: var(--text-muted); font-size: 16px; padding: 2px 4px;
+  transition: color 0.15s;
+}
+.closeBtn:hover { color: var(--text-primary); }
+
+.content { flex: 1; overflow-y: auto; }
+
+.hint {
+  padding: 32px 20px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.resultsList { padding: 8px 0; }
+
+.userRow {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 16px; cursor: pointer;
+  transition: background 0.1s;
+}
+.userRow:hover { background: var(--bg-input); }
+
+.avatarWrap { position: relative; flex-shrink: 0; }
+
+.avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 600; overflow: hidden;
+  object-fit: cover;
+}
+
+.statusDot {
+  position: absolute; bottom: 1px; right: 1px;
+  width: 11px; height: 11px; border-radius: 50%;
+  border: 2px solid var(--bg-sidebar);
+}
+
+.userInfo { flex: 1; }
+.userName { font-size: 15px; font-weight: 500; color: var(--text-primary); }
+.userMeta { display: flex; gap: 8px; margin-top: 2px; align-items: center; }
+.userNick { font-size: 12px; color: var(--text-muted); }
+.statusTxt { font-size: 12px; font-weight: 500; }
+
+/* Профіль */
+.profile { padding: 16px; }
+
+.backBtn {
+  display: flex; align-items: center; gap: 4px;
+  background: none; border: none; cursor: pointer;
+  color: var(--accent); font-size: 14px; font-weight: 500;
+  font-family: inherit; padding: 0; margin-bottom: 16px;
+}
+
+.profileHeader {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 16px;
+}
+
+.profileAvatarWrap { position: relative; flex-shrink: 0; }
+
+.profileAvatar {
+  width: 72px; height: 72px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; font-weight: 600; overflow: hidden;
+  object-fit: cover;
+}
+
+.profileStatusDot {
+  position: absolute; bottom: 3px; right: 3px;
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 2.5px solid var(--bg-sidebar);
+}
+
+.profileName { font-size: 20px; font-weight: 600; color: var(--text-primary); }
+.profileNick { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+.profileStatus { font-size: 13px; font-weight: 500; margin-top: 4px; }
+
+.bio {
+  background: var(--bg-input);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.sharedSection { margin-top: 4px; }
+
+.sharedTitle {
+  font-size: 11px; font-weight: 600; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.sharedRoom {
+  display: flex; align-items: center; gap: 6px;
+  padding: 7px 0; font-size: 14px; color: var(--text-secondary);
+  border-bottom: 0.5px solid var(--border-color);
+}
+.sharedHash { color: var(--text-muted); font-weight: 600; }
